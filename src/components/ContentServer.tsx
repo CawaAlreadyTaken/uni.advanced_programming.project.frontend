@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchFilesList, fetchFile } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { toast } from "sonner";
 
 interface ContentServerProps {
   serverId: string;

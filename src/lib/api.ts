@@ -25,27 +25,28 @@ const MOCK_FILES = ["image1.jpg", "photo2.png", "picture3.jpg"];
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const fetchServers = async (): Promise<Server[]> => {
-  // const response = await fetch(`${API_BASE_URL}/servers`);
-  // if (!response.ok) throw new Error("Failed to fetch servers");
-  // return response.json();
+  const response = await fetch(`${API_BASE_URL}/servers`);
+  if (!response.ok) throw new Error("Failed to fetch servers");
+  return response.json();
+  /*
   await delay(1000);
   return MOCK_SERVERS;
+  */
 };
 
 export const fetchFilesList = async (serverId: string): Promise<string[]> => {
-  // const response = await fetch(`${API_BASE_URL}/files_list?server_id=${serverId}`);
-  // if (!response.ok) throw new Error("Failed to fetch files");
-  // return response.json();
-  await delay(1000);
-  return MOCK_FILES;
+  const response = await fetch(`${API_BASE_URL}/files_list?server_id=${serverId}`);
+  if (!response.ok) throw new Error("Failed to fetch files");
+  return response.json();
 };
 
 export const fetchFile = async (serverId: string, filename: string): Promise<string> => {
-  // const response = await fetch(`${API_BASE_URL}/file?server_id=${serverId}&filename=${filename}`);
-  // if (!response.ok) throw new Error("Failed to fetch file");
-  // return response.json();
-  await delay(1000);
-  return "https://picsum.photos/400/300"; // Random placeholder image
+  const response = await fetch(`${API_BASE_URL}/file?server_id=${serverId}&filename=${filename}`);
+  if (!response.ok) throw new Error("Failed to fetch file");
+
+  const b64image = (await response.json())["image"];
+  const blob = new Blob([Uint8Array.from(atob(b64image), c => c.charCodeAt(0))], { type: "image/jpeg" });
+  return URL.createObjectURL(blob);
 };
 
 export const registerToChat = async (serverId: string): Promise<string> => {
