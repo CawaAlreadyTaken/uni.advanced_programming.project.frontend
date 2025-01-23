@@ -58,10 +58,10 @@ export const ContentServer = ({ serverId }: ContentServerProps) => {
                 Close
               </Button>
             </div>
-            <img
+            <img width="60%"
               src={fileContent}
               alt={selectedFile || ""}
-              className="max-w-full h-auto"
+              className="max-h-full h-auto"
             />
           </div>
         </div>
