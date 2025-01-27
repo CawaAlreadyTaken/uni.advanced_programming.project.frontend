@@ -82,7 +82,7 @@ export const CommunicationServer = ({ serverId }: CommunicationServerProps) => {
 
     sendMessage(serverId, content, clientId.replace("client", ""))
       .then(() => {
-        setNewMessages((prev) => ({ ...prev, [clientId]: "" }));
+        setNewMessages((prev) => ({ ...prev, [clientId.replace("client", "")]: "" }));
       })
       .catch((err) => {
         console.error("Error sending message:", err);

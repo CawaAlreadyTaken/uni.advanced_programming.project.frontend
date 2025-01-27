@@ -16,18 +16,23 @@ export interface Message {
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const fetchServers = async (): Promise<Server[]> => {
+  await fetch(`${API_BASE_URL}/obtain_servers`, {method: "POST"});
+  await delay(1000);
   const response = await fetch(`${API_BASE_URL}/servers`);
   if (!response.ok) throw new Error("Failed to fetch servers");
   return response.json();
 };
 
 export const fetchFilesList = async (serverId: string): Promise<string[]> => {
+  await fetch(`${API_BASE_URL}/obtain_files_list?server_id=${serverId}`, {method: "POST"});
+  await delay(1000);
   const response = await fetch(`${API_BASE_URL}/files_list?server_id=${serverId}`);
   if (!response.ok) throw new Error("Failed to fetch files");
   return response.json();
 };
 
 export const fetchFile = async (serverId: string, filename: string): Promise<string> => {
+  await fetch(`${API_BASE_URL}/obtain_file?server_id=${serverId}&filename=${filename}`, {method: "POST"});
   const response = await fetch(`${API_BASE_URL}/file?server_id=${serverId}&filename=${filename}`);
   if (!response.ok) throw new Error("Failed to fetch file");
 
@@ -46,6 +51,7 @@ export const registerToChat = async (serverId: string): Promise<string> => {
 };
 
 export const fetchClients = async (serverId: string): Promise<string[]> => {
+  await fetch(`${API_BASE_URL}/obtain_clients?server_id=${serverId}`, {method: "POST"});
   const response = await fetch(`${API_BASE_URL}/clients?server_id=${serverId}`);
   if (!response.ok) throw new Error("Failed to fetch clients");
   return response.json();
