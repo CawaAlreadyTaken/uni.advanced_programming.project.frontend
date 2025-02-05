@@ -10,6 +10,8 @@ const ServerPage = () => {
   const { data: servers, isLoading, error } = useQuery({
     queryKey: ["servers"],
     queryFn: fetchServers,
+    refetchInterval: false,
+    refetchOnWindowFocus: false,
   });
 
   if (isLoading) {

@@ -9,6 +9,8 @@ const Index = () => {
   const { data: servers, isLoading, error, refetch } = useQuery({
     queryKey: ["servers"],
     queryFn: fetchServers,
+    refetchInterval: false,
+    refetchOnWindowFocus: false,
   });
 
   if (error) {
