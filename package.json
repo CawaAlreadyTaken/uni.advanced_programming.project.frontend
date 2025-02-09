@@ -4,7 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "dev1": "cross-env VITE_NODE_ID=1 VITE_PORT=8081 vite",
     "dev2": "cross-env VITE_NODE_ID=2 VITE_PORT=8082 vite",
+    "dev3": "cross-env VITE_NODE_ID=3 VITE_PORT=8083 vite",
+    "dev4": "cross-env VITE_NODE_ID=4 VITE_PORT=8084 vite",
+    "dev5": "cross-env VITE_NODE_ID=5 VITE_PORT=8085 vite",
     "dev6": "cross-env VITE_NODE_ID=6 VITE_PORT=8086 vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",

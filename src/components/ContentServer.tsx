@@ -13,6 +13,8 @@ export const ContentServer = ({ serverId }: ContentServerProps) => {
     queryKey: ["files", serverId],
     queryFn: () => fetchFilesList(serverId),
     enabled: false,
+    refetchInterval: false,
+    refetchOnWindowFocus: false,
   });
 
   const { data: fileContent } = useQuery({
