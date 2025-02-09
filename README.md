@@ -1,10 +1,6 @@
-# Welcome to Dr.Ones frontend
+# Dr.Ones frontend
 
-## Project info
-
-TODO
-
-## Install
+## Install and run
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -20,17 +16,36 @@ cd <YOUR_PROJECT_NAME>
 # Step 3: Install the necessary dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Step 4: Start the development server. One should start a frontend for each client.
+# 	  For starting client <CLIENT_ID>, run:
+npm run dev<CLIENT_ID>
+
+# For instance:
+npm run dev6
 ```
 
 ## What technologies are used for this project?
 
-This project is built with .
+This project is built with:
 
 - Vite
 - TypeScript
 - React
 - shadcn-ui
 - Tailwind CSS
+
+## Contributors
+This project was developed by:
+
+- Federico De Santi
+- Wendelin Falschlunger
+- Nathan Perdoux
+- Daniele Cabassi
+
+## Contacts
+
+- federico.desanti@studenti.unitn.it
+- wendelin.falschlunger@studenti.unitn.it
+- nathan.perdoux@studenti.unitn.it
+- daniele.cabassi@studenti.unitn.it
 
